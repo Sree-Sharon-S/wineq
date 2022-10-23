@@ -30,3 +30,10 @@ dvc add_data_given/winequality.csv
 git add .
 
 git commit -m "first commit"
+
+onliner updates for readme
+git add . && git commit -m "update Readme.md"
+
+git remode add origin https://github.com/Sree-Sharon-S/wineq.g
+git branch -M main
+git push origin main
