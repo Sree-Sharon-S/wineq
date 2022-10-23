@@ -14,13 +14,13 @@ def read_params(config_path):
     return config
 
 def get_data(config_path):
-    config = read_params(config_path)
-    print(config)
+    config = read_params(config_path) # here config is a dictionary with all parameters
+    #print(config)
 
-    data_path = config["data_source"]["s3_bucket"]
+    data_path = config["data_source"]["s3_bucket"] # usually takes from remote dataset but here it is a csv in "data_given" folder
     df = pd.read_csv(data_path,sep=",", encoding='utf-8')
     return df
-
+# extra comment
 if __name__ == "__main__":
     args = ArgumentParser()
     args.add_argument("--config", default = "params.yaml")
