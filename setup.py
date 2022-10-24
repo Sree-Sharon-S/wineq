@@ -7,7 +7,5 @@ setup(
     author = "Sharon",
     packages=find_packages(),
     license = "MIT"
-    
-
 )
 

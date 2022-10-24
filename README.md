@@ -39,3 +39,15 @@ git branch -M main
 git push origin main
 
 git rm -r --cached 'data/raw/winequality.csv' git commit -m "stop tracking data/raw/winequality.csv"
+
+tox command
+tox
+
+for rebuilding
+tox -r
+
+pytest command
+pytest -v
+
+setup commands
+pip install -e .
