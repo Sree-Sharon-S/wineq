@@ -37,3 +37,5 @@ git add . && git commit -m "update Readme.md"
 git remode add origin https://github.com/Sree-Sharon-S/wineq.g
 git branch -M main
 git push origin main
+
+git rm -r --cached 'data/raw/winequality.csv' git commit -m "stop tracking data/raw/winequality.csv"
