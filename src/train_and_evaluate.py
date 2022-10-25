@@ -32,7 +32,7 @@ def train_and_evaluate(config_path):
     alpha = config["estimators"]["ElasticNet"]["params"]["alpha"]
     l1_ratio = config["estimators"]["ElasticNet"]["params"]["l1_ratio"]
 
-    target = config["base"]["target_col"]
+    target = [config["base"]["target_col"]]
 
     train = pd.read_csv(train_data_path, sep = ",")
     test = pd.read_csv(test_data_path, sep = ",")

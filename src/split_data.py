@@ -21,8 +21,8 @@ def split_and_saved_data(config_path):
                                 df,
                                 test_size = split_ratio, 
                                 random_state = random_state )
-    train.to_csv(train_data_path, sep = ",",encoding ='utf-8')
-    test.to_csv(test_data_path, sep = ",", encoding ='utf-8')
+    train.to_csv(train_data_path, sep = ",",encoding ='utf-8', index=False)
+    test.to_csv(test_data_path, sep = ",", encoding ='utf-8', index=False)
 
 if __name__ == "__main__":
 
