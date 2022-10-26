@@ -60,7 +60,6 @@ def validate_input(dict_request):
             raise NotInRange
 
     for col, val in dict_request.items():
-        print(col)
         _validate_cols(col)
         _validate_values(col, val)
 
@@ -78,10 +77,17 @@ def form_response(dict_request):
 def api_response(dict_request):
     try:
         if validate_input(dict_request):
+            #print("Input Validated")
             data = np.array([list(dict_request.values())])
             response = predict(data)
             response = {"response": response}
             return response
-    except Exception as e:
+
+    except NotInRange as e:
         response = {"the_expected_range": get_schema(), "response": str(e)}
+        return response
+    except NotInCol as e:
+        response = {"the_expected_columns": [key for key in get_schema().keys()],
+                    "response": str(e)}
+        # print(response)
         return response
