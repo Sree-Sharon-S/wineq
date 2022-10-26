@@ -20,6 +20,7 @@ def index():
                 return render_template("index.html", response=response)
             elif request.json:
                 response = prediction.api_response(request.json)
+                print(response)
                 return jsonify(response)
 
         except Exception as e:
