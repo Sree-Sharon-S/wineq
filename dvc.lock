@@ -7,11 +7,11 @@ stages:
       md5: ccc8d3507eb151f53f760d36abdef888
       size: 91998
     - path: src/get_data.py
-      md5: 43bfdaf7d7d3cf8e7c7c43c93edcc29a
-      size: 919
+      md5: 6dab44335227d1e7cdd414254e9700af
+      size: 921
     - path: src/load_data.py
-      md5: 7862a0f35ce52b4cd2c5064a7f49c78a
-      size: 759
+      md5: e3b12347fbf6c314a5c8a607caad97cf
+      size: 745
     outs:
     - path: data/raw/winequality.csv
       md5: d98e8f2eca228c11c4de1cc96866a54d
@@ -23,38 +23,28 @@ stages:
       md5: d98e8f2eca228c11c4de1cc96866a54d
       size: 93598
     - path: src/split_data.py
-      md5: 8246f874b3287cf325b4d1062c3d5a86
-      size: 1153
+      md5: d1349bdc01801458cc32aa2e4e0fcf09
+      size: 1099
     outs:
     - path: data/processed/test_winequality.csv
-      md5: 61c8795e355c18440d7bbaae25c0a4fb
-      size: 20213
+      md5: 01718da3bd6e206060ed00667ca1a389
+      size: 18831
     - path: data/processed/train_winequality.csv
-      md5: f2aa3bd0c97468b7110f957a1ed59f54
-      size: 80418
+      md5: 4bccf4d668cdc60115de42ba74d416ab
+      size: 74913
   train_and_evaluate:
     cmd: python src/train_and_evaluate.py --config=params.yaml
     deps:
     - path: data/processed/test_winequality.csv
-      md5: 61c8795e355c18440d7bbaae25c0a4fb
-      size: 20213
+      md5: 01718da3bd6e206060ed00667ca1a389
+      size: 18831
     - path: data/processed/train_winequality.csv
-      md5: f2aa3bd0c97468b7110f957a1ed59f54
-      size: 80418
+      md5: 4bccf4d668cdc60115de42ba74d416ab
+      size: 74913
     - path: src/train_and_evaluate.py
-      md5: a83d675c25ab27419ce8a9466b0a5cd9
-      size: 2619
+      md5: cf0a00677bf89ca194ff2ffe223259ee
+      size: 3643
     params:
       params.yaml:
-        estimators.ElasticNet.params.alpha: 0.88
-        estimators.ElasticNet.params.l1_ratio: 0.9
-    outs:
-    - path: report/params.json
-      md5: 0b3736db41a370b73e40d3d3bac568e3
-      size: 45
-    - path: report/scores.json
-      md5: 355eb6abca084c62ae6a414f1ff237d1
-      size: 101
-    - path: saved_models/model.joblib
-      md5: b5ede4b233231c4bbf7fb4f9616aedca
-      size: 1393
+        estimators.ElasticNet.params.alpha: 0.5
+        estimators.ElasticNet.params.l1_ratio: 0.5
